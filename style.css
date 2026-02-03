@@ -23,11 +23,9 @@ position: relative;
 }
 
 .loader-img {
-width: 100%;
-border-radius: 20px;
-position: absolute;
-opacity: 0;
-transition: opacity 1s ease;
+  width: 100%;
+  border-radius: 20px;
+  display: block;  
 }
 
 .loader-images {
@@ -37,22 +35,23 @@ position: relative;
 }
 
 .polaroid {
-background: white;
-padding: 10px 10px 25px;
-border-radius: 8px;
-box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-position: absolute;
-width: 100%;
-opacity: 0;
-transform: scale(0.95);
-transition: opacity 1s ease, transform 1s ease;
-text-align: center;
-min-height: 320px;
+  background: white;
+  padding: 10px 10px 25px;
+  border-radius: 8px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+  text-align: center;
+  min-height: 320px;
 }
 
 .polaroid img {
-width: 100%;
-border-radius: 6px;
+  width: 100%;
+  border-radius: 6px;
+  display: block;
 }
 
 .polaroid span {
