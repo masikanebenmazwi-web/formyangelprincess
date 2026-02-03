@@ -35,7 +35,6 @@ showNext();
 
 const envelope = document.getElementById("envelope");
 const messageBox = document.getElementById("message");
-const music = document.getElementById("bgMusic");
 
 const HER_NAME = "My Angel Princess"; // change name
 
