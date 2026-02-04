@@ -1,20 +1,22 @@
+/* PRELOADER */
 window.addEventListener("load", () => {
   const polaroids = document.querySelectorAll(".polaroid");
   const preloader = document.getElementById("preloader");
 
+  polaroids.forEach(p => {
+    p.style.setProperty("--r", `${Math.random() * 14 - 7}deg`);
+  });
+
   let index = 0;
 
   function showNext() {
-    if (index > 0) {
-      polaroids[index - 1].style.opacity = 0;
-    }
+    if (index > 0) polaroids[index - 1].style.opacity = 0;
 
     if (index < polaroids.length) {
-      const current = polaroids[index];
-      current.style.opacity = 1;
-      current.style.transform = "scale(1)";
+      polaroids[index].style.opacity = 1;
+      polaroids[index].style.transform = "scale(1)";
       index++;
-      setTimeout(showNext, 1400);
+      setTimeout(showNext, 1300);
     } else {
       setTimeout(() => {
         preloader.style.opacity = 0;
@@ -24,25 +26,22 @@ window.addEventListener("load", () => {
   }
 
   showNext();
-});;
+});
 
-
+/* MAIN INTERACTION */
 const envelope = document.getElementById("envelope");
 const messageBox = document.getElementById("message");
-
-const HER_NAME = "My Angel Princess"; // change name
+const music = document.getElementById("bgMusic");
 
 const messages = [
-  `Hey ${HER_NAME} 💕`,
-  "I just wanted to say…",
-  "Entering our first Valentines together, an eternity to go🌸",
-  "Fake size 4 wearer",
-  "There’s something important I need to ask you…"
+  "Hey my love 💕",
+  "I made this just for you…",
+  "Every moment with you feels special",
+  "But there’s something I need to ask you…"
 ];
 
 let step = 0;
 
-// start music on first tap
 document.body.addEventListener("click", () => {
   music.play();
   document.getElementById("musicHint").style.display = "none";
@@ -59,8 +58,10 @@ envelope.addEventListener("click", () => {
     step++;
   } else {
     messageBox.innerHTML = `
-      <h2>Will you be my Valentine? 💖</h2>
-      <button onclick="yes()">YES YES YES 💕</button>
+      <h2 style="font-family:'Dancing Script';font-size:30px;">
+        Will you be my Valentine? 💖
+      </h2>
+      <button onclick="yes()">YES 💕</button>
       <button id="noBtn">NO 😅</button>
     `;
     setTimeout(runNoButton, 100);
@@ -78,21 +79,19 @@ function runNoButton() {
 
 function yes() {
   document.body.innerHTML = `
-    <h1 style="text-align:center;margin-top:40vh;color:#ff4d88;">
-      It's been a little over a year since I first laid eyes on you and I'm yet to grow tired of your eyes resting on mine.
-      You are my wildest dream come true.
-      From how you stay calm when it's all falling apart, to the way your voice sounds when you're merely speaking.
-      Everything about you draws me in.
-      I know GOD loves me so much HE blessing me with you.
-      You are deeply adored my angel.
-      By me, by the GOD who made you, by my heart that grows soft for you. 
-      I thank GOD for you, the woman you are and the man I am because of you.
-      I've found my good thing💖
-    </h1>
+    <div id="finalScreen">
+      <h1>She said yes 💖</h1>
+      <p>
+        It's been a little over a year since I first laid eyes on you,
+        and I'm yet to grow tired of your eyes resting on mine.
+        You are my wildest dream come true.
+        I thank God for you, my angel.
+      </p>
+    </div>
   `;
 }
 
-// floating hearts
+/* HEARTS */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
