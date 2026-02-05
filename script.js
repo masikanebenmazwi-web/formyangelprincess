@@ -81,32 +81,13 @@ envelope.addEventListener("click", () => {
 /* ===========================
    TYPEWRITER WITH HEARTS
 =========================== */
-function typeWriter(text, element, speed = 50) {
+function typeWriter(text, element, speed = 60) {
   let i = 0;
   element.textContent = "";
 
   const timer = setInterval(() => {
     element.textContent += text.charAt(i);
     i++;
-
-    // Add a tiny heart every 5 characters
-    if (i % 5 === 0) {
-      const heart = document.createElement("span");
-      heart.textContent = "💗";
-      heart.style.display = "inline-block";
-      heart.style.opacity = 1;
-      heart.style.marginLeft = "2px";
-      heart.style.fontSize = "18px";
-      heart.style.transition = "opacity 1s ease";
-      element.appendChild(heart);
-
-      // fade out the heart
-      setTimeout(() => {
-        heart.style.opacity = 0;
-      }, 600);
-      setTimeout(() => heart.remove(), 1600);
-    }
-
     if (i >= text.length) clearInterval(timer);
   }, speed);
 }
